@@ -1,5 +1,5 @@
 FROM openjdk:8
-ENV airAPP airports-assembly-1.0.1.jar
-ADD $airAPP  /opt/$airAPP
-ENTRYPOINT ["/bin/bash", "-c", "java -jar /opt/$airAPP"]
+ENV AirFile airports-assembly-1.1.0.jar
+ADD $AirFile  /opt/$AirFile
+ENTRYPOINT ["/bin/bash", "-c", "java -jar /opt/$AirFile"]
 

@@ -48,7 +48,7 @@ if [ -n $1 -a -e $1 ];then
     else  
        	  sed -i "s/$Current_jar/$new_jar/g" ./$Work_dir/Dockerfile
            echo "jar file has been updated"
-           bash -x ./deployment.sh2
+           bash -x ./deployment.sh
 
     fi
   fi

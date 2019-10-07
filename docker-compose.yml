@@ -13,14 +13,14 @@ services:
             - countriesApp-network
             - airportsApp-network
             
-     countries.v1:
+     countries:
          build: ./countriesAPP
          image: countries-app:v1
          container_name: countries.v1
          networks:
              - countriesApp-network
 
-     airports.v1:
+     airports:
          build: ./airportsAPP
          image: airports-app:v1
          container_name: airports.v1

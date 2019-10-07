@@ -18,7 +18,7 @@ if [ -n $1 -a -e $1 ];then
 ## Get Container Name & Version or runnig Images
 
   DesiredApp=$(echo $Work_dir|cut -c1-7)
-  cont=$(docker ps -f name=$DesiredApp -q|sed -n '1p' )
+  export cont=$(docker ps -f name=$DesiredApp -q|sed -n '1p' )
   export cont_f_name=$(docker inspect "$cont" -f "{{ .Name }}"|cut -d/ -f2)
   export cont_name=$(docker inspect "$cont" -f "{{ .Name }}"|cut -d/ -f2|cut -d "." -f1)
   export cont_version=$(docker inspect "$cont" -f "{{ .Name }}"|cut -d/ -f2|cut -d "." -f2)
@@ -27,7 +27,7 @@ if [ -n $1 -a -e $1 ];then
   echo $Running_Jfile
 
 ## Get Image Name & Version
-  Cur_img=$(docker inspect $cont_f_name -f "{{.Config.Image}}")
+  export Cur_img=$(docker inspect $cont_f_name -f "{{.Config.Image}}")
   export image_name=$(docker inspect $cont_f_name -f "{{.Config.Image}}"|cut -d: -f1)
   export image_ver=$(docker inspect $cont_f_name -f "{{.Config.Image}}"|cut -d: -f2)
   export img_ver_num=$(echo $image_ver|cut -c2)

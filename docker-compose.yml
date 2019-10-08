@@ -23,7 +23,7 @@ services:
      airports:
          build: ./airportsAPP
          image: airports-app:v1
-         container_name: airports.v4
+         container_name: airports.v1
          networks:
              - airportsApp-network
 

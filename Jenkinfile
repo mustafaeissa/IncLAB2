@@ -1,0 +1,23 @@
+pipeline {
+  environment {
+    jar_file="./airportsApp/airports-assembly-1.1.0.jar"
+  }
+  agent any 
+  stages {
+  stage('Cloning Git') {
+    steps {
+      git 'https://github.com/mustafaeissa/IncLAB2'
+    }
+  }  
+  stage('Running services') {
+    steps {
+      sh 'docker-compose up -d'
+    }
+  }
+  stage('Update Images') {
+    steps {
+      sh "bash -x testNewBuild.sh $jar_file"
+    }
+  }
+ }
+}
